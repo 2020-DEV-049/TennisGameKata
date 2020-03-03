@@ -10,6 +10,7 @@ public class ScoreBoard {
 	private static final int MINIMUM_POINTS_FOR_DEUCE = 3;
 	private static final String DEUCE = "Deuce";
 	private static final String ALL = " All";
+
 	private Player firstPlayer;
 	private Player secondPlayer;
 
@@ -41,6 +42,27 @@ public class ScoreBoard {
 		}
 
 		return result;
+	}
+
+	@Override
+	public String toString() {
+
+		String[] scoreBoardContents = { "Player Names", "Points",
+				firstPlayer.getName(), String.valueOf(firstPlayer.getPoints()),
+				secondPlayer.getName(),
+				String.valueOf(secondPlayer.getPoints()), "Result", getResult() };
+
+		String displayResult = "\n";
+
+		for (int boardIndex = 0; boardIndex <= boardIndex + 1
+				&& boardIndex <= scoreBoardContents.length - 1; boardIndex = boardIndex + 2) {
+			displayResult += String.format("|%1$-25s|%2$-25s|",
+					scoreBoardContents[boardIndex],
+					scoreBoardContents[boardIndex + 1])
+					+ "\n";
+		}
+
+		return displayResult;
 	}
 
 	private boolean isWin(int playerPointsDifference) {

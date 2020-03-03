@@ -3,6 +3,12 @@ package com.client.exercise.tennis;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -96,6 +102,33 @@ public class ScoreBoardTest {
 		secondPlayer.setPoints(8);
 
 		assertThat(scoreBoard.getResult(), is(firstPlayer.getName() + " Wins"));
+	}
+
+	@Test
+	public void scoreBoardShouldDisplayAllDetailsForTheTennisGame() {
+		firstPlayer.setPoints(7);
+
+		secondPlayer.setPoints(7);
+
+		try {
+			assertThat(scoreBoard.toString(), is(generateScoreBoardDetails()));
+		} catch (IOException e) {
+			e.getMessage();
+		}
+	}
+
+	private String generateScoreBoardDetails() throws IOException {
+		Path path = Paths.get("src/test/resources/scoreBoardTest.txt");
+
+		List<String> lines = Files.readAllLines(path);
+		String output = "";
+
+		for (String l : lines) {
+			output += l;
+			output += "\n";
+		}
+
+		return output;
 	}
 
 }

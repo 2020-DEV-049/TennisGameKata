@@ -2,6 +2,7 @@ package com.client.exercise.tennis;
 
 public class ScoreBoard {
 
+	private static final int POINTS_DIFFERENCE_FOR_ADVANTAGE = 1;
 	private static final int MINIMUM_POINTS_FOR_DEUCE = 3;
 	private static final String DEUCE = "Deuce";
 	private static final String ALL = " All";
@@ -17,15 +18,18 @@ public class ScoreBoard {
 
 		String result;
 
+		int playerPointsCompared = firstPlayer.compareTo(secondPlayer);
+		
+		
 		if (firstPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE
 				&& secondPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE
-				&& Math.abs(firstPlayer.compareTo(secondPlayer)) == 1) {
-			if (firstPlayer.compareTo(secondPlayer) > 0) {
+				&& Math.abs(playerPointsCompared) == POINTS_DIFFERENCE_FOR_ADVANTAGE) {
+			if (playerPointsCompared > 0) {
 				result = "Advantage " + firstPlayer.getName();
 			} else {
 				result = "Advantage " + secondPlayer.getName();
 			}
-		} else if (firstPlayer.compareTo(secondPlayer) == 0) {
+		} else if (playerPointsCompared == 0) {
 
 			result = firstPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE ? DEUCE
 					: firstPlayer.getScore() + ALL;

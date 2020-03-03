@@ -2,6 +2,8 @@ package com.client.exercise.tennis;
 
 public class ScoreBoard {
 
+	private static final int MINIMUM_POINTS_FOR_DEUCE = 3;
+	private static final String DEUCE = "Deuce";
 	private static final String ALL = " All";
 	private Player firstPlayer;
 	private Player secondPlayer;
@@ -16,8 +18,8 @@ public class ScoreBoard {
 		String result;
 
 		if (firstPlayer.compareTo(secondPlayer) == 0) {
-			if (firstPlayer.getPoints() >= 3) {
-				result = "Deuce";
+			if (firstPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE) {
+				result = DEUCE;
 			} else {
 				result = firstPlayer.getScore() + ALL;
 			}

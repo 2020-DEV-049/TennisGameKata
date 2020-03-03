@@ -25,8 +25,8 @@ public class ScoreBoardTest {
 	@Before
 	public void setUp() {
 
-		firstPlayer = new Player();
-		secondPlayer = new Player();
+		firstPlayer = new Player("Sampras");
+		secondPlayer = new Player("Agassi");
 
 		scoreBoard = new ScoreBoard(firstPlayer, secondPlayer);
 	}
@@ -73,6 +73,17 @@ public class ScoreBoardTest {
 		secondPlayer.setPoints(6);
 
 		assertThat(scoreBoard.getResult(), is(DEUCE));
+	}
+
+	@Test
+	public void scoreBoardResultShouldBeAdvantageSecondPlayerIfFirstPlayerPointsIsThreeSecondPlayerPointsIsFour() {
+
+		firstPlayer.setPoints(3);
+
+		secondPlayer.setPoints(4);
+
+		assertThat(scoreBoard.getResult(),
+				is("Advantage " + secondPlayer.getName()));
 	}
 
 }

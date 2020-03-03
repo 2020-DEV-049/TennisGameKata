@@ -18,8 +18,8 @@ public class TennisGameTest {
 
 	@Before
 	public void setUp() {
-		firstPlayer = new Player();
-		secondPlayer = new Player();
+		firstPlayer = new Player("Sampras");
+		secondPlayer = new Player("Agassi");
 
 		game = new TennisGame(firstPlayer, secondPlayer);
 	}

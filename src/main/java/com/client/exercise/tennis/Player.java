@@ -4,7 +4,13 @@ import com.client.exercise.tennis.constants.PointsToScoreMapper;
 
 public class Player implements Comparable<Player> {
 
+	private String name;
+
 	private int points;
+
+	public Player(String name) {
+		this.name = name;
+	}
 
 	public int getPoints() {
 		return points;
@@ -22,4 +28,13 @@ public class Player implements Comparable<Player> {
 	public int compareTo(Player p) {
 		return this.points - p.points;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 }

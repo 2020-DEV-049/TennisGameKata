@@ -7,6 +7,8 @@ import org.junit.Test;
 
 public class TennisGameTest {
 
+	private static final String ZERO_ZERO = "0 - 0";
+
 	@Test
 	public void gamePointsShouldBeZeroZeroWhenGameBegins() {
 		Player firstPlayer = new Player();
@@ -14,6 +16,7 @@ public class TennisGameTest {
 
 		TennisGame game = new TennisGame(firstPlayer, secondPlayer);
 
-		assertThat(game.getPoints(), is("0 - 0"));
+		assertThat(game.getPoints(), is(ZERO_ZERO));
 	}
+	
 }

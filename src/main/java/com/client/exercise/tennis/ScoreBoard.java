@@ -16,8 +16,11 @@ public class ScoreBoard {
 		String result;
 
 		if (firstPlayer.compareTo(secondPlayer) == 0) {
-
-			result = firstPlayer.getScore() + ALL;
+			if (firstPlayer.getPoints() >= 3) {
+				result = "Deuce";
+			} else {
+				result = firstPlayer.getScore() + ALL;
+			}
 		} else {
 
 			result = firstPlayer.getScore() + " " + secondPlayer.getScore();

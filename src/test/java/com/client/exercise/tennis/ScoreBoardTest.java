@@ -63,4 +63,14 @@ public class ScoreBoardTest {
 		assertThat(scoreBoard.getResult(), is(FIFTEEN_ALL));
 	}
 
+	@Test
+	public void scoreBoardResultShouldBeDeuceIfBothPlayersPointsAreSix() {
+
+		firstPlayer.setPoints(6);
+
+		secondPlayer.setPoints(6);
+
+		assertThat(scoreBoard.getResult(), is("Deuce"));
+	}
+
 }

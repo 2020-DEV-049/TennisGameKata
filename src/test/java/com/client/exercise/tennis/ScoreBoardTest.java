@@ -8,6 +8,8 @@ import org.junit.Test;
 
 public class ScoreBoardTest {
 
+	private static final String DEUCE = "Deuce";
+
 	private static final String FIFTEEN_ALL = "Fifteen All";
 
 	private static final String THIRTY_FORTY = "Thirty Forty";
@@ -70,7 +72,7 @@ public class ScoreBoardTest {
 
 		secondPlayer.setPoints(6);
 
-		assertThat(scoreBoard.getResult(), is("Deuce"));
+		assertThat(scoreBoard.getResult(), is(DEUCE));
 	}
 
 }

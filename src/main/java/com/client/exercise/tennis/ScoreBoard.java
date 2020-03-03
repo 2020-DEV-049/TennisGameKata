@@ -18,11 +18,9 @@ public class ScoreBoard {
 		String result;
 
 		if (firstPlayer.compareTo(secondPlayer) == 0) {
-			if (firstPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE) {
-				result = DEUCE;
-			} else {
-				result = firstPlayer.getScore() + ALL;
-			}
+
+			result = firstPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE ? DEUCE
+					: firstPlayer.getScore() + ALL;
 		} else {
 
 			result = firstPlayer.getScore() + " " + secondPlayer.getScore();

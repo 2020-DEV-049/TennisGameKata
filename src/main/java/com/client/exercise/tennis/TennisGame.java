@@ -13,4 +13,8 @@ public class TennisGame {
 	public String getPoints() {
 		return firstPlayer.getPoints() + " - " + secondPlayer.getPoints();
 	}
+
+	public ScoreBoard getBoard() {
+		return new ScoreBoard(firstPlayer,secondPlayer);
+	}
 }

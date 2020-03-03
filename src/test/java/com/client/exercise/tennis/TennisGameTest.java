@@ -18,5 +18,14 @@ public class TennisGameTest {
 
 		assertThat(game.getPoints(), is(ZERO_ZERO));
 	}
-	
+
+	@Test
+	public void scoreBoardShouldDisplayLoveAllWhenGamePointsIsZeroZero() {
+		Player firstPlayer = new Player();
+		Player secondPlayer = new Player();
+
+		TennisGame game = new TennisGame(firstPlayer, secondPlayer);
+
+		assertThat(game.getBoard().getResult(), is("Love All"));
+	}
 }

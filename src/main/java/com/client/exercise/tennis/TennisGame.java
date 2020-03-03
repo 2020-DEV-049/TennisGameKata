@@ -20,12 +20,16 @@ public class TennisGame {
 	}
 
 	public ScoreBoard getBoard() throws InvalidPointsException {
-		if ((firstPlayer.getPoints() > MINIMUM_POINTS_FOR_WIN || secondPlayer
-				.getPoints() > MINIMUM_POINTS_FOR_WIN)
-				&& Math.abs(firstPlayer.compareTo(secondPlayer)) > MINIMUM_POINTS_DIFFERENCE_FOR_WIN) {
+		if (isInvalid()) {
 			throw new InvalidPointsException(PLAYER_POINTS_ARE_INVALID);
 		} else {
 			return new ScoreBoard(firstPlayer, secondPlayer);
 		}
+	}
+
+	private boolean isInvalid() {
+		return (firstPlayer.getPoints() > MINIMUM_POINTS_FOR_WIN || secondPlayer
+				.getPoints() > MINIMUM_POINTS_FOR_WIN)
+				&& Math.abs(firstPlayer.compareTo(secondPlayer)) > MINIMUM_POINTS_DIFFERENCE_FOR_WIN;
 	}
 }

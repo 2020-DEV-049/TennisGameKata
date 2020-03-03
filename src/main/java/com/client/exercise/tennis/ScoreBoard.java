@@ -2,6 +2,9 @@ package com.client.exercise.tennis;
 
 public class ScoreBoard {
 
+	private static final String WINS = " Wins";
+	private static final int MINIMUM_POINTS_DIFFERENCE_FOR_WIN = 2;
+	private static final int MINIMUM_POINTS_FOR_WIN = 4;
 	private static final String ADVANTAGE = "Advantage ";
 	private static final int POINTS_DIFFERENCE_FOR_ADVANTAGE = 1;
 	private static final int MINIMUM_POINTS_FOR_DEUCE = 3;
@@ -20,13 +23,15 @@ public class ScoreBoard {
 		String result;
 
 		int playerPointsCompared = firstPlayer.compareTo(secondPlayer);
-		if ((firstPlayer.getPoints() >= 4 || secondPlayer.getPoints() >= 4)
-				&& Math.abs(playerPointsCompared) >= 2) {
+
+		if ((firstPlayer.getPoints() >= MINIMUM_POINTS_FOR_WIN || secondPlayer
+				.getPoints() >= MINIMUM_POINTS_FOR_WIN)
+				&& Math.abs(playerPointsCompared) >= MINIMUM_POINTS_DIFFERENCE_FOR_WIN) {
 
 			if (playerPointsCompared > 0) {
-				result = firstPlayer.getName() + " Wins";
+				result = firstPlayer.getName() + WINS;
 			} else {
-				result = secondPlayer.getName() + " Wins";
+				result = secondPlayer.getName() + WINS;
 			}
 		} else if (isAdvantage(playerPointsCompared)) {
 

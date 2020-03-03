@@ -88,4 +88,14 @@ public class ScoreBoardTest {
 				is(ADVANTAGE + secondPlayer.getName()));
 	}
 
+	@Test
+	public void scoreBoardResultShouldBeFirstPlayerWinsIfFirstPlayerPointsIsTenSecondPlayerPointsIsEight() {
+
+		firstPlayer.setPoints(10);
+
+		secondPlayer.setPoints(8);
+
+		assertThat(scoreBoard.getResult(), is(firstPlayer.getName() + " Wins"));
+	}
+
 }

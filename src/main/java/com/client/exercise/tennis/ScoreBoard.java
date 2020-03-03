@@ -20,8 +20,15 @@ public class ScoreBoard {
 		String result;
 
 		int playerPointsCompared = firstPlayer.compareTo(secondPlayer);
+		if ((firstPlayer.getPoints() >= 4 || secondPlayer.getPoints() >= 4)
+				&& Math.abs(playerPointsCompared) >= 2) {
 
-		if (isAdvantage(playerPointsCompared)) {
+			if (playerPointsCompared > 0) {
+				result = firstPlayer.getName() + " Wins";
+			} else {
+				result = secondPlayer.getName() + " Wins";
+			}
+		} else if (isAdvantage(playerPointsCompared)) {
 
 			result = ADVANTAGE
 					+ (playerPointsCompared > 0 ? firstPlayer.getName()

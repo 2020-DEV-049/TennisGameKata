@@ -21,9 +21,7 @@ public class ScoreBoard {
 		int playerPointsCompared = firstPlayer.compareTo(secondPlayer);
 		
 		
-		if (firstPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE
-				&& secondPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE
-				&& Math.abs(playerPointsCompared) == POINTS_DIFFERENCE_FOR_ADVANTAGE) {
+		if (isAdvantage(playerPointsCompared)) {
 			if (playerPointsCompared > 0) {
 				result = "Advantage " + firstPlayer.getName();
 			} else {
@@ -39,5 +37,11 @@ public class ScoreBoard {
 		}
 
 		return result;
+	}
+
+	private boolean isAdvantage(int playerPointsCompared) {
+		return firstPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE
+				&& secondPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE
+				&& Math.abs(playerPointsCompared) == POINTS_DIFFERENCE_FOR_ADVANTAGE;
 	}
 }

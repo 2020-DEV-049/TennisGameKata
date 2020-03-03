@@ -12,7 +12,10 @@ public class ScoreBoard {
 	}
 
 	public String getResult() {
-		if (firstPlayer.getPoints() == 0 && secondPlayer.getPoints() == 0) {
+		if (firstPlayer.getPoints() == 1 && secondPlayer.getPoints() == 0) {
+			return "Fifteen Love";
+		} else if (firstPlayer.getPoints() == 0
+				&& secondPlayer.getPoints() == 0) {
 			return LOVE_ALL;
 		} else {
 			return "";

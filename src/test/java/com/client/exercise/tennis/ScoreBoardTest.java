@@ -20,4 +20,17 @@ public class ScoreBoardTest {
 		assertThat(scoreBoard.getResult(), is(LOVE_ALL));
 	}
 
+	@Test
+	public void scoreBoardResultShouldBeFifteenLoveIfFirstPlayerPointsIsOne() {
+
+		Player firstPlayer = new Player();
+		Player secondPlayer = new Player();
+
+		firstPlayer.setPoints(1);
+
+		ScoreBoard scoreBoard = new ScoreBoard(firstPlayer, secondPlayer);
+
+		assertThat(scoreBoard.getResult(), is("Fifteen Love"));
+	}
+
 }

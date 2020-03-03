@@ -51,4 +51,14 @@ public class ScoreBoardTest {
 		assertThat(scoreBoard.getResult(), is(THIRTY_FORTY));
 	}
 
+	@Test
+	public void scoreBoardResultShouldBeFifteenAllIfBothPlayersPointsAreOne() {
+
+		firstPlayer.setPoints(1);
+
+		secondPlayer.setPoints(1);
+
+		assertThat(scoreBoard.getResult(), is("Fifteen All"));
+	}
+
 }

@@ -2,7 +2,6 @@ package com.client.exercise.tennis;
 
 public class ScoreBoard {
 
-	private static final String LOVE_ALL = "Love All";
 	private Player firstPlayer;
 	private Player secondPlayer;
 
@@ -15,12 +14,12 @@ public class ScoreBoard {
 
 		String result;
 
-		if (firstPlayer.getPoints() > 0 || secondPlayer.getPoints() > 0) {
+		if (firstPlayer.getPoints() == secondPlayer.getPoints()) {
 
-			result = firstPlayer.getScore() + " " + secondPlayer.getScore();
+			result = firstPlayer.getScore() + " All";
 		} else {
 
-			result = LOVE_ALL;
+			result = firstPlayer.getScore() + " " + secondPlayer.getScore();
 		}
 
 		return result;

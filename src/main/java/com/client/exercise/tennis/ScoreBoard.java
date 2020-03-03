@@ -16,7 +16,10 @@ public class ScoreBoard {
 
 		String result;
 
-		if (firstPlayer.getPoints() == 1 && secondPlayer.getPoints() == 0) {
+		if (firstPlayer.getPoints() == 2 && secondPlayer.getPoints() == 3) {
+			result = "Thirty Forty";
+		} else if (firstPlayer.getPoints() == 1
+				&& secondPlayer.getPoints() == 0) {
 			result = FIFTEEN_LOVE;
 		} else if (firstPlayer.getPoints() == 0
 				&& secondPlayer.getPoints() == 0) {

@@ -2,7 +2,7 @@ package com.client.exercise.tennis;
 
 import com.client.exercise.tennis.constants.PointsToScoreMapper;
 
-public class Player {
+public class Player implements Comparable<Player> {
 
 	private int points;
 
@@ -16,5 +16,10 @@ public class Player {
 
 	public String getScore() {
 		return PointsToScoreMapper.getScore(points);
+	}
+
+	@Override
+	public int compareTo(Player p) {
+		return this.points - p.points;
 	}
 }

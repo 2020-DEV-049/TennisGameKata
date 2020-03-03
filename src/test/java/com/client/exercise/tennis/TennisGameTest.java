@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.client.exercise.tennis.exceptions.InvalidPointsException;
+
 public class TennisGameTest {
 
 	private static final String LOVE_ALL = "Love All";
@@ -31,8 +33,18 @@ public class TennisGameTest {
 	}
 
 	@Test
-	public void scoreBoardShouldDisplayLoveAllWhenGamePointsIsZeroZero() {
+	public void scoreBoardShouldDisplayLoveAllWhenGamePointsIsZeroZero()
+			throws InvalidPointsException {
 
 		assertThat(game.getBoard().getResult(), is(LOVE_ALL));
+	}
+
+	@Test(expected = InvalidPointsException.class)
+	public void getBoardShouldThrowInvalidPointsExceptionWhenGamePointsIsTenThirteen()
+			throws InvalidPointsException {
+		firstPlayer.setPoints(10);
+		secondPlayer.setPoints(13);
+
+		game.getBoard();
 	}
 }

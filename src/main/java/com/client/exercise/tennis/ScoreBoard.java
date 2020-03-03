@@ -13,13 +13,18 @@ public class ScoreBoard {
 	}
 
 	public String getResult() {
+
+		String result;
+
 		if (firstPlayer.getPoints() == 1 && secondPlayer.getPoints() == 0) {
-			return FIFTEEN_LOVE;
+			result = FIFTEEN_LOVE;
 		} else if (firstPlayer.getPoints() == 0
 				&& secondPlayer.getPoints() == 0) {
-			return LOVE_ALL;
+			result = LOVE_ALL;
 		} else {
-			return "";
+			result = "";
 		}
+
+		return result;
 	}
 }

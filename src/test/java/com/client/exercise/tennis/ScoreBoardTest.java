@@ -14,6 +14,10 @@ import org.junit.Test;
 
 public class ScoreBoardTest {
 
+	private static final String SCORE_BOARD_TEST_TXT = "src/test/resources/scoreBoardTest.txt";
+
+	private static final String new_line = "\n";
+
 	private static final String ADVANTAGE = "Advantage ";
 
 	private static final String DEUCE = "Deuce";
@@ -118,14 +122,14 @@ public class ScoreBoardTest {
 	}
 
 	private String generateScoreBoardDetails() throws IOException {
-		Path path = Paths.get("src/test/resources/scoreBoardTest.txt");
+		Path path = Paths.get(SCORE_BOARD_TEST_TXT);
 
 		List<String> lines = Files.readAllLines(path);
 		String output = "";
 
 		for (String l : lines) {
 			output += l;
-			output += "\n";
+			output += new_line;
 		}
 
 		return output;

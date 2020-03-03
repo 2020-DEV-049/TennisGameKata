@@ -7,6 +7,8 @@ import org.junit.Test;
 
 public class ScoreBoardTest {
 
+	private static final String LOVE_ALL = "Love All";
+
 	@Test
 	public void scoreBoardResultShouldBeLoveAllIfBothPlayersPointsAreZero() {
 
@@ -15,7 +17,7 @@ public class ScoreBoardTest {
 
 		ScoreBoard scoreBoard = new ScoreBoard(firstPlayer, secondPlayer);
 
-		assertThat(scoreBoard.getResult(), is("Love All"));
+		assertThat(scoreBoard.getResult(), is(LOVE_ALL));
 	}
 
 }

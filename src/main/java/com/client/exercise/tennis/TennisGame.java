@@ -4,6 +4,9 @@ import com.client.exercise.tennis.exceptions.InvalidPointsException;
 
 public class TennisGame {
 
+	private static final String PLAYER_POINTS_ARE_INVALID = "Player points are invalid.";
+	private static final int MINIMUM_POINTS_DIFFERENCE_FOR_WIN = 2;
+	private static final int MINIMUM_POINTS_FOR_WIN = 4;
 	private Player firstPlayer;
 	private Player secondPlayer;
 
@@ -17,9 +20,10 @@ public class TennisGame {
 	}
 
 	public ScoreBoard getBoard() throws InvalidPointsException {
-		if ((firstPlayer.getPoints() > 4 || secondPlayer.getPoints() > 4)
-				&& Math.abs(firstPlayer.compareTo(secondPlayer)) > 2) {
-			throw new InvalidPointsException("Player points are invalid.");
+		if ((firstPlayer.getPoints() > MINIMUM_POINTS_FOR_WIN || secondPlayer
+				.getPoints() > MINIMUM_POINTS_FOR_WIN)
+				&& Math.abs(firstPlayer.compareTo(secondPlayer)) > MINIMUM_POINTS_DIFFERENCE_FOR_WIN) {
+			throw new InvalidPointsException(PLAYER_POINTS_ARE_INVALID);
 		} else {
 			return new ScoreBoard(firstPlayer, secondPlayer);
 		}

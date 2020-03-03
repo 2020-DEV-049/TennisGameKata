@@ -23,17 +23,18 @@ public class ScoreBoard {
 		String result;
 
 		int playerPointsCompared = firstPlayer.compareTo(secondPlayer);
+		int playerPointsDifference = Math.abs(playerPointsCompared);
 
 		if ((firstPlayer.getPoints() >= MINIMUM_POINTS_FOR_WIN || secondPlayer
 				.getPoints() >= MINIMUM_POINTS_FOR_WIN)
-				&& Math.abs(playerPointsCompared) >= MINIMUM_POINTS_DIFFERENCE_FOR_WIN) {
+				&& playerPointsDifference >= MINIMUM_POINTS_DIFFERENCE_FOR_WIN) {
 
 			if (playerPointsCompared > 0) {
 				result = firstPlayer.getName() + WINS;
 			} else {
 				result = secondPlayer.getName() + WINS;
 			}
-		} else if (isAdvantage(playerPointsCompared)) {
+		} else if (isAdvantage(playerPointsDifference)) {
 
 			result = ADVANTAGE
 					+ (playerPointsCompared > 0 ? firstPlayer.getName()
@@ -50,9 +51,9 @@ public class ScoreBoard {
 		return result;
 	}
 
-	private boolean isAdvantage(int playerPointsCompared) {
+	private boolean isAdvantage(int playerPointsDifference) {
 		return firstPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE
 				&& secondPlayer.getPoints() >= MINIMUM_POINTS_FOR_DEUCE
-				&& Math.abs(playerPointsCompared) == POINTS_DIFFERENCE_FOR_ADVANTAGE;
+				&& playerPointsDifference == POINTS_DIFFERENCE_FOR_ADVANTAGE;
 	}
 }

@@ -2,6 +2,11 @@ package com.client.exercise.tennis;
 
 public class ScoreBoard {
 
+	private static final String NEW_LINE = "\n";
+	private static final String SCOREBOARD_DISPLAY_FORMAT = "|%1$-25s|%2$-25s|";
+	private static final String RESULT = "Result";
+	private static final String POINTS = "Points";
+	private static final String PLAYER_NAMES = "Player Names";
 	private static final String WINS = " Wins";
 	private static final int MINIMUM_POINTS_DIFFERENCE_FOR_WIN = 2;
 	private static final int MINIMUM_POINTS_FOR_WIN = 4;
@@ -47,19 +52,19 @@ public class ScoreBoard {
 	@Override
 	public String toString() {
 
-		String[] scoreBoardContents = { "Player Names", "Points",
+		String[] scoreBoardContents = { PLAYER_NAMES, POINTS,
 				firstPlayer.getName(), String.valueOf(firstPlayer.getPoints()),
 				secondPlayer.getName(),
-				String.valueOf(secondPlayer.getPoints()), "Result", getResult() };
+				String.valueOf(secondPlayer.getPoints()), RESULT, getResult() };
 
-		String displayResult = "\n";
+		String displayResult = NEW_LINE;
 
 		for (int boardIndex = 0; boardIndex <= boardIndex + 1
 				&& boardIndex <= scoreBoardContents.length - 1; boardIndex = boardIndex + 2) {
-			displayResult += String.format("|%1$-25s|%2$-25s|",
+			displayResult += String.format(SCOREBOARD_DISPLAY_FORMAT,
 					scoreBoardContents[boardIndex],
 					scoreBoardContents[boardIndex + 1])
-					+ "\n";
+					+ NEW_LINE;
 		}
 
 		return displayResult;

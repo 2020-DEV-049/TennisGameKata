@@ -9,8 +9,10 @@ public class TennisGameTest {
 
 	@Test
 	public void gamePointsShouldBeZeroZeroWhenGameBegins() {
+		Player firstPlayer = new Player();
+		Player secondPlayer = new Player();
 
-		TennisGame game = new TennisGame();
+		TennisGame game = new TennisGame(firstPlayer, secondPlayer);
 
 		assertThat(game.getPoints(), is("0 - 0"));
 	}

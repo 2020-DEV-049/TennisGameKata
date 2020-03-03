@@ -91,7 +91,7 @@ The score board for the tennis game will be displayed.
 After running maven install through command prompt/eclipse application jar file will be created in below location
 
 ```bash 
-<PROJECT_ROOT_FOLDER>\target\tennis-game-0.0.1-SNAPSHOT.jar
+<PROJECT_ROOT_FOLDER>\target\tennis-game-kata-0.0.1-SNAPSHOT.jar
 ```
 
 Navigate to this path in command prompt and execute the below command 

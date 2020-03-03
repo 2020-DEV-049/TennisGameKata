@@ -29,11 +29,8 @@ public class ScoreBoard {
 				.getPoints() >= MINIMUM_POINTS_FOR_WIN)
 				&& playerPointsDifference >= MINIMUM_POINTS_DIFFERENCE_FOR_WIN) {
 
-			if (playerPointsCompared > 0) {
-				result = firstPlayer.getName() + WINS;
-			} else {
-				result = secondPlayer.getName() + WINS;
-			}
+			result = (playerPointsCompared > 0 ? firstPlayer.getName()
+					: secondPlayer.getName()) + WINS;
 		} else if (isAdvantage(playerPointsDifference)) {
 
 			result = ADVANTAGE
